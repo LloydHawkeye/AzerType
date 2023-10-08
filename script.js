@@ -1,31 +1,27 @@
 const listeMots = ["Cachalot", "Pétunia", "Serviette"]
+const listePhrases  = ["Pas de panique !", "La vie, l'univers et le reste", "Merci pour le poisson"]
 let score = 0
-let motUtilisateur = prompt("entre une le mot : " + listeMots[0])
 
-if (motUtilisateur === listeMots[0]) {
-    score++
-    console.log("GG bro, tu gagnes un pountos.")
-    console.log("Score : " + score)  }
+let choixUtilisateur = prompt("Voulez vous des 'mots' ou des 'phrases' ?")
+while (choixUtilisateur !== "mots" & choixUtilisateur !== "phrases") {
+    choixUtilisateur = prompt("Désolé, je n'ai pas compris. Voulez vous des 'mots' ou des 'phrases' ?")
+}
+
+if (choixUtilisateur === "mots") {
+    for (let i = 0; i < 3; i++ ) {
+        let motUtilisateur = prompt("entre une le mot : " + listeMots[i])
+        if (motUtilisateur === listeMots[i]) {
+        score++ }
+        }
+}
 else {
-    console.log("Dommage ! Tu feras mieux au prochain mot.")
-    console.log("Score : " + score) }
+    if (choixUtilisateur === "phrases") {
+        for (let i = 0; i < 3; i++ ) {
+            let motUtilisateur = prompt("entre une le mot : " + listePhrases[i])
+            if (motUtilisateur === listePhrases[i]) {
+            score++ }
+            }
+    }
+}
 
-motUtilisateur = prompt("entre une le mot : " + listeMots[1])
-
-if (motUtilisateur === listeMots[1]) {
-    score +=1
-    console.log("GG bro, tu gagnes un pountos.")
-    console.log("Score : " + score)  }
-else {
-    console.log("Dommage ! Tu feras mieux au prochain mot.")
-    console.log("Score : " + score) }
-
-    motUtilisateur = prompt("entre une le mot : " + listeMots[2])
-
-if (motUtilisateur === listeMots[2]) {
-    score +=1
-    console.log("GG bro, tu gagnes un pountos.")
-    console.log("Score : " + score)  }
-else {
-    console.log("Dommage ! Tu feras mieux au prochain mot.")
-    console.log("Score : " + score) }
+console.log("Score : " + score)
