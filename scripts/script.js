@@ -40,5 +40,3 @@ function lancerJeu() {
     }
     afficherResultat(score, nbMots)
 }
-
-lancerJeu()
