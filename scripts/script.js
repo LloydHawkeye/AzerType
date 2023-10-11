@@ -22,7 +22,9 @@ function lancerBoucleDeJeu(listePropositions) {
 }
 
 function afficherResultat (score, nbMots) {
-    console.log("Votre score est de " + score + " sur " + nbMots)
+    let spanScore = document.querySelector(".zoneScore span")
+    let affichageScore = `${score} / ${nbMots}`
+    spanScore.innerHTML = affichageScore
 }
 
 function lancerJeu() {
