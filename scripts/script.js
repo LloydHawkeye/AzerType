@@ -29,17 +29,18 @@ function afficherResultat (score, nbMots) {
 
 function lancerJeu() {
     let score = 0
-    let nbMots = 0
+    let i = 0
     let btn__valider = document.getElementById("btn__valider")
     let saisiUtilisateur = document.getElementById("reponse")
     afficherProposition(i)
     btn__valider.addEventListener('click', () => {
-        console.log(saisiUtilisateur.value)
         if (saisiUtilisateur.value === listeMots[i]) {
             // Si le mot saisi par l'utilisateur est correct, on incrémente le score
             score++}
         console.log(score)
         i++
+        afficherResultat(score, i)
+        saisiUtilisateur.value = ""
         if (listeMots[i] === undefined) {
             let div__zonetxt = document.querySelector(".zone-txt")
             div__zonetxt.innerHTML = "Fin du jeu"
@@ -48,14 +49,14 @@ function lancerJeu() {
                 afficherProposition(i)
             }
         console.log(listeMots[i])
-        afficherResultat(score, listeMots.length)
+
     });
     console.log(score)
-
+    afficherResultat(score, i)
 }
 
-function afficherProposition (i) {
-    mot = listeMots[i]
+function afficherProposition (motnuméro) {
+    mot = listeMots[motnuméro]
     let div__zonetxt = document.querySelector(".zone-txt")
     div__zonetxt.innerHTML = mot
     
