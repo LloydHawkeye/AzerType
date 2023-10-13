@@ -97,10 +97,13 @@ main p  {
     color: rgb(117, 0, 201);
     padding: 3px 25px;
     border-radius: 8px;
-    border: ;
     font-size: 17px;
     background-color: white;
     font-weight: 600;
     position: relative;
     bottom: 0.5px;
+}
+
+#btn__valider:disabled {
+    background-color: rgba(190, 190, 190, 0.849);
 }
