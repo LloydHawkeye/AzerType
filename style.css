@@ -31,6 +31,7 @@ main {
     margin: auto;
     border-radius: 30px;
     color: white;
+    margin-bottom: 120px;
 }
 
 footer {
@@ -62,12 +63,14 @@ main p  {
     margin-left: 35px;
 }
 
-#réponse {
+#reponse {
     text-align: center;
     border-radius: 10px;
     height: 25px;
     width: 65%;
     border: none;
+    font-size: 16px;
+    
 }
 
 .zone-txt, .zone-saisie {
@@ -94,7 +97,10 @@ main p  {
     color: rgb(117, 0, 201);
     padding: 3px 25px;
     border-radius: 8px;
+    border: ;
     font-size: 17px;
     background-color: white;
     font-weight: 600;
+    position: relative;
+    bottom: 0.5px;
 }
