@@ -32,32 +32,44 @@ function lancerJeu() {
     let i = 0
     let btn__valider = document.getElementById("btn__valider")
     let saisiUtilisateur = document.getElementById("reponse")
-    afficherProposition(i)
+    let listOptionInput = document.querySelectorAll(".option input")
+let listeProposition = listeMots
+for (let x = 0; x < listOptionInput.length; x++) {
+    listOptionInput[x].addEventListener("change", (event) =>  {
+        if (event.target.value === "mots") {
+            listeProposition = listeMots
+        } else { 
+            if (event.target.value === "phrase") {
+                listeProposition = listePhrases
+            }
+        }
+        afficherProposition(listeProposition[i])
+        if (listeProposition[i] === undefined) {
+            let div__zonetxt = document.querySelector(".zone-txt")
+            div__zonetxt.innerHTML = "Fin du jeu"}
+    })}
+    afficherProposition(listeProposition[i])
     btn__valider.addEventListener('click', () => {
-        if (saisiUtilisateur.value === listeMots[i]) {
+        if (saisiUtilisateur.value === listeProposition[i]) {
             // Si le mot saisi par l'utilisateur est correct, on incrémente le score
             score++}
-        console.log(score)
         i++
         afficherResultat(score, i)
         saisiUtilisateur.value = ""
-        if (listeMots[i] === undefined) {
+        if (listeProposition[i] === undefined) {
             let div__zonetxt = document.querySelector(".zone-txt")
             div__zonetxt.innerHTML = "Fin du jeu"
             btn__valider.disabled = true }
             else {
-                afficherProposition(i)
+                afficherProposition(listeProposition[i])
             }
-        console.log(listeMots[i])
 
     });
-    console.log(score)
     afficherResultat(score, i)
 }
 
 function afficherProposition (motnuméro) {
-    mot = listeMots[motnuméro]
     let div__zonetxt = document.querySelector(".zone-txt")
-    div__zonetxt.innerHTML = mot
+    div__zonetxt.innerHTML = motnuméro
     
 }
