@@ -33,6 +33,7 @@ function lancerJeu() {
     let btn__valider = document.getElementById("btn__valider")
     let saisiUtilisateur = document.getElementById("reponse")
     let listOptionInput = document.querySelectorAll(".option input")
+    let divError = document.querySelector(".zone-saisie__error")
 let listeProposition = listeMots
 for (let x = 0; x < listOptionInput.length; x++) {
     listOptionInput[x].addEventListener("change", (event) =>  {
@@ -54,16 +55,15 @@ for (let x = 0; x < listOptionInput.length; x++) {
             // Si le mot saisi par l'utilisateur est correct, on incrémente le score
             score++
             i++
-            saisiUtilisateur.setAttribute("Placeholder", "Reproduisez le texte ci-dessus")
-            saisiUtilisateur.setAttribute("style", "border:none")
+            divError.setAttribute("style", "display:none")
         }
         else { if (saisiUtilisateur.value === "") {
-                saisiUtilisateur.setAttribute("Placeholder", "Veuillez saisir le mot ci-dessus")
                 saisiUtilisateur.setAttribute("style", "border:red solid 1px")
+                divError.setAttribute("style", "display:inherit")
             } else {
                 i++
-                saisiUtilisateur.setAttribute("Placeholder", "Reproduisez le texte ci-dessus")
                 saisiUtilisateur.setAttribute("style", "border:none")
+                divError.setAttribute("style", "display:none")
             }
         }
         afficherResultat(score, i)
