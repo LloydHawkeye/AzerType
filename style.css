@@ -70,7 +70,9 @@ main p  {
     width: 65%;
     border: none;
     font-size: 16px;
-    
+}
+#reponse:focus{
+    outline: none;
 }
 
 .zone-txt, .zone-saisie {
@@ -106,4 +108,9 @@ main p  {
 
 #btn__valider:disabled {
     background-color: rgba(190, 190, 190, 0.849);
+}
+
+.error
+{
+    outline: red solid 1px;
 }
