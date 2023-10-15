@@ -52,8 +52,20 @@ for (let x = 0; x < listOptionInput.length; x++) {
     btn__valider.addEventListener('click', () => {
         if (saisiUtilisateur.value === listeProposition[i]) {
             // Si le mot saisi par l'utilisateur est correct, on incrémente le score
-            score++}
-        i++
+            score++
+            i++
+            saisiUtilisateur.setAttribute("Placeholder", "Reproduisez le texte ci-dessus")
+            saisiUtilisateur.setAttribute("style", "border:none")
+        }
+        else { if (saisiUtilisateur.value === "") {
+                saisiUtilisateur.setAttribute("Placeholder", "Veuillez saisir le mot ci-dessus")
+                saisiUtilisateur.setAttribute("style", "border:red solid 1px")
+            } else {
+                i++
+                saisiUtilisateur.setAttribute("Placeholder", "Reproduisez le texte ci-dessus")
+                saisiUtilisateur.setAttribute("style", "border:none")
+            }
+        }
         afficherResultat(score, i)
         saisiUtilisateur.value = ""
         if (listeProposition[i] === undefined) {
