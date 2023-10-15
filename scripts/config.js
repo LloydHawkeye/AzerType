@@ -1,3 +1,3 @@
 // Liste des mots/phrases qui seront utilisées
-const listeMots = ["Cachalot", "Pétunia", "Serviette"]
-const listePhrases  = ["Pas de panique !", "La vie, l'univers et le reste", "Merci pour le poisson"]
+const listeMots = ["Mouche", "Triforce", "Chausette", "Objection", "Raclette", "Suave" ]
+const listePhrases  = ["Prêt à travailler", "The cake is a lie", "Attrapez-les tous", "Travail terminé"]
