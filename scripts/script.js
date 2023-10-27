@@ -8,6 +8,7 @@ function lancerJeu() {
     let score = 0
     let i = 0
     let btn__valider = document.getElementById("btn__valider")
+    let btn__recommencer = document.getElementById("btn__recommencer")
     let saisiUtilisateur = document.getElementById("reponse")
     let listOptionInput = document.querySelectorAll(".option input")
     let divError = document.querySelector(".zone-saisie__error")
@@ -37,7 +38,7 @@ for (let x = 0; x < listOptionInput.length; x++) {
         }
         else { if (saisiUtilisateur.value === "") {
                 saisiUtilisateur.setAttribute("style", "border:red solid 1px")
-                divError.setAttribute("style", "display:inherit")
+                divError.setAttribute("style", "display:block")
             } else {
                 i++
                 saisiUtilisateur.setAttribute("style", "border:none")
@@ -56,6 +57,13 @@ for (let x = 0; x < listOptionInput.length; x++) {
 
     });
     afficherResultat(score, i)
+    btn__recommencer.addEventListener('click', () => {
+        score = 0
+        i = 0
+        afficherResultat(score, i)
+        afficherProposition(listeProposition[i])
+        btn__valider.disabled = false
+    })
 }
 
 function afficherProposition (motnuméro) {
