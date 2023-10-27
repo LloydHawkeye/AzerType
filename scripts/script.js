@@ -56,6 +56,35 @@ for (let x = 0; x < listOptionInput.length; x++) {
             }
 
     });
+    saisiUtilisateur.addEventListener('keypress', (event)=> {
+        if (event.key === "Enter") {
+            if (saisiUtilisateur.value === listeProposition[i]) {
+                // Si le mot saisi par l'utilisateur est correct, on incrémente le score
+                score++
+                i++
+                saisiUtilisateur.setAttribute("style", "border:none")
+                divError.setAttribute("style", "display:none")
+            }
+            else { if (saisiUtilisateur.value === "") {
+                    saisiUtilisateur.setAttribute("style", "border:red solid 1px")
+                    divError.setAttribute("style", "display:block")
+                } else {
+                    i++
+                    saisiUtilisateur.setAttribute("style", "border:none")
+                    divError.setAttribute("style", "display:none")
+                }
+            }
+            afficherResultat(score, i)
+            saisiUtilisateur.value = ""
+            if (listeProposition[i] === undefined) {
+                let div__zonetxt = document.querySelector(".zone-txt")
+                div__zonetxt.innerHTML = "Fin du jeu"
+                btn__valider.disabled = true }
+                else {
+                    afficherProposition(listeProposition[i])
+                }
+        }
+    })
     afficherResultat(score, i)
     btn__recommencer.addEventListener('click', () => {
         score = 0
